@@ -11,6 +11,7 @@ from Game.Heuristic import Heuristic
 from Players.AlwaysFirstPlayer import AlwaysFirstPlayer
 from Players.HumanPlayer import HumanPlayer
 from Players.OSLAPlayer import OSLAPlayer
+from Players.MyBot import MyBot
 from Players.SlowPlayer import SlowPlayer
 from Players.RandomPlayer import RandomPlayer
 from Game.BriscaGame import BriscaGame
@@ -21,6 +22,7 @@ from Game.BriscaGame import BriscaGame
 # When the game ends, game_state.winner has the player id of the winner (0 or 1)
 # ---------------------------------------------------------------------------
 if __name__ == '__main__':
+    #random.seed(1)
     budget = 1                  # Time to think for AI in second
     verbose = True              # print messages ON/OFF
     controlling_time = True    # If the player time to think is going to be controlled (True/False)
@@ -36,7 +38,7 @@ if __name__ == '__main__':
     player_id_as_first = random.choice(range(game_state.n_players))        # who starts is determined randomly
     game.reset(game_state, player_id_as_first)                             # Game initialization
 
-    l_players = [RandomPlayer(), OSLAPlayer()]    # list of Players
+    l_players = [MyBot(), OSLAPlayer()]    # list of Players
 
     if save_game:
         game.save_game_on(save_name)
